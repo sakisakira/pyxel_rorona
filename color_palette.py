@@ -1,0 +1,17 @@
+def load():
+    return [0x000000,
+            0x9d9d9d,
+            0xffffff,
+            0xe5e5e5,
+            0xe06f8b,
+            0x493c2b,
+            0xa46422,
+            0xeb8931,
+            0xffdb97,
+            0xd0b754,
+            0xffb672,
+            0xa3ce27,
+            0x1b2632,
+            0x005784,
+            0x31a2f2,
+            0xb2dcef]

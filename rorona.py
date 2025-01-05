@@ -1,4 +1,5 @@
 import pyxel
+import color_palette
 
 Screen = [240, 180]
 Sprite = [32, 48]
@@ -30,22 +31,7 @@ class App:
 
     def init_color_palette(self):
         colors = pyxel.colors.to_list()
-        sprite_colors = [0x000000,
-                         0x9d9d9d,
-                         0xffffff,
-                         0xe5e5e5,
-                         0xe06f8b,
-                         0x493c2b,
-                         0xa46422,
-                         0xeb8931,
-                         0xffdb97,
-                         0xd0b754,
-                         0xffb672,
-                         0xa3ce27,
-                         0x1b2632,
-                         0x005784,
-                         0x31a2f2,
-                         0xb2dcef]
+        sprite_colors = color_palette.load()
         colors.extend(sprite_colors)
         pyxel.colors.from_list(colors)
 
@@ -54,7 +40,7 @@ class App:
         self.tic += 1
     
     def draw(self):
-        pyxel.cls(0)
+        pyxel.cls(1)
         self.disp_walking()
 
     def disp_walking(self):
@@ -63,7 +49,7 @@ class App:
             sp_id = FR0
         else:
             sp_id = FR1
-        pyxel.blt(self.x, self.y, 0, sp_id[0] * Sprite[0], sp_id[1] * Sprite[1], Sprite[0], Sprite[1])
+        pyxel.blt(self.x, self.y, 0, sp_id[0] * Sprite[0], sp_id[1] * Sprite[1], Sprite[0], Sprite[1], 0)
 
     def movement(self):
         if pyxel.btn(pyxel.KEY_LEFT): self.x -= 1
